@@ -1,34 +1,38 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase/config';
-import { Spin } from 'antd'
+import { Spin } from 'antd';
 
 export const AuthContext = createContext();
 
-const AuthProvider = (children) => {
+const AuthProvider = ({ children }) => {
    const history = useNavigate();
 
-   const [user, setUser] = useState();
+   const [user, setUser] = useState({});
    const [isLoading, setIsLoading] = useState(true);
 
    useEffect(() => {
-      const unsubscibe = auth.onAuthStateChanged((user) => {
-         console.log({user});
+      const unsubscibed = auth.onAuthStateChanged((user) => {
          if (user) {
-            const { displayName, email, userId, photoURL } = user;
+            const { displayName, email, uid, photoURL } = user;
             setUser({
-               displayName, email, userId, photoURL
+               displayName,
+               email,
+               uid,
+               photoURL,
             });
             setIsLoading(false);
             history('/');
+            return;
          }
 
+         setIsLoading(false);
          history('/login');
       });
       
       // Clean Function
       return () => {
-         unsubscibe();
+         unsubscibed();
       }
    }, [history]);
    

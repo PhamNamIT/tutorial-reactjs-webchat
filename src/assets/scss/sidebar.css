@@ -1,0 +1,108 @@
+.sidebar {
+   height: 100vh;
+   background-color: #3f0e40;
+   color: white;
+   flex-flow: column;
+}
+/* Sidebar */
+.col-userinfo {
+   max-height: 57px !important;
+}
+.col-listroom {
+   max-height: calc(100vh - 57px);
+}
+.userinfo {
+   display: flex;
+   justify-content: space-between;
+   padding: 12px 16px;
+   border-bottom: 1px solid rgba(82, 38, 83);
+}
+.username {
+   color: white;
+   margin-left: 5px;
+}
+.ant-collapse-header {
+   color: white !important;
+}
+.ant-collapse-content {
+   padding: 0 25px;
+}
+.room {
+   display: block;
+   margin-bottom: 5px;
+   color: white;
+}
+.add-room {
+   color: white;
+   padding: 0;
+}
+/* ChatWindow */
+.chatwindow {
+   height: 100vh;
+}
+.chatwindow-header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 57px;
+   padding: 0 16px;
+   border-bottom: 1px solid rgba(230, 230, 230);
+}
+.room_info {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.room_name {
+   font-size: 18px;
+   margin: 0;
+   font-weight: 700;
+}
+.room_description {
+   font-size: 12px;
+}
+.users_info {
+   display: flex;
+   align-items: center;
+}
+.users_info button {
+   margin-right: 12px;
+}
+.chatwindow-content {
+   height: calc(100% - 56px);
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   padding: 12px;
+}
+.message {
+   max-height: 100%;
+   overflow-y: auto;
+}
+.message-box {
+   margin-bottom: 10px;
+}
+.author {
+   margin-left: 5px;
+   font-weight: 700;
+}
+.date {
+   margin-left: 10px;
+   font-size: 11px;
+   color: #a7a7a7;
+}
+.content {
+   margin-left: 30px;
+}
+.form_message {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 2px 2px 2px 0;
+   border: 1px solid rgb(230, 230, 230);
+   border-radius: 2px;
+}
+.form_message .ant-form-item {
+   flex: 1;
+   margin-bottom: 0;
+}

@@ -1,7 +1,7 @@
 import firebase from "firebase/compat/app";
 
-import "firebase/compat/analytics";
 import "firebase/compat/auth";
+import "firebase/compat/analytics";
 import "firebase/compat/firestore";
 
 const firebaseConfig = {
@@ -20,6 +20,11 @@ firebase.analytics();
 
 const auth = firebase.auth();
 const db = firebase.firestore();
+
+auth.useEmulator('http://localhost:9099');
+if (window.location.hostname === 'localhost') {
+  db.useEmulator('localhost', '8080');
+}
 
 export { auth, db };
 export default firebase;
